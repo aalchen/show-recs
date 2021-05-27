@@ -34,7 +34,7 @@ export default class ShowsList extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:5000/shows/")
+      .get("https://show-recs.herokuapp.com/shows/")
       .then((response) => {
         this.setState({ shows: response.data });
       })
@@ -44,9 +44,11 @@ export default class ShowsList extends Component {
   }
 
   deleteShow(id) {
-    axios.delete("http://localhost:5000/shows/" + id).then((response) => {
-      console.log(response.data);
-    });
+    axios
+      .delete("https://show-recs.herokuapp.com/shows/" + id)
+      .then((response) => {
+        console.log(response.data);
+      });
 
     this.setState({
       shows: this.state.shows.filter((el) => el._id !== id),

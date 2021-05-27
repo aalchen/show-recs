@@ -24,7 +24,7 @@ export default class CreateShow extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:5000/users/")
+      .get("https://show-recs.herokuapp.com/users/")
       .then((response) => {
         if (response.data.length > 0) {
           this.setState({
@@ -80,7 +80,7 @@ export default class CreateShow extends Component {
     };
 
     axios
-      .post("http://localhost:5000/shows/add", show)
+      .post("https://show-recs.herokuapp.com/shows/add", show)
       .then((res) => console.log(res.data));
 
     window.location = "/";
